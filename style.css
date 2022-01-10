@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+
+:root{
+    --circle-nav-size:150px;
+}
+/* Defualt  */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background-color: #333;
+    color: #222;
+    margin: 0;
+    caret-color: transparent;
+}
+
+.container{
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+.container.show-nav{
+    transform: rotate(-20deg); 
+}
+
+
+.circle-container{
+    position: absolute;
+    top: calc(var(--circle-nav-size)/2*-1);
+    left: calc(var(--circle-nav-size)/2*-1);
+}
+
+
+.circle{
+    background-color: green;
+    height: var(--circle-nav-size);
+    width: var(--circle-nav-size);
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle{
+    transform: rotate(-70deg);
+    
+}
+
+.circle button{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding-top:calc(var(--circle-nav-size)/8)  ;
+    background-color: transparent;
+    border: 0;
+    font: var;
+    color:#fff;
+
+}
+
+.circle button:focus{
+    outline: none;
+}
+
+.circle button#open{
+    left: 60%;
+}
+
+.circle button#close{
+    top:60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+   
+}
+
+.circle button i{
+    
+    font-size: calc(var(--circle-nav-size)/6); 
+}
+
+.container.show-nav + nav li{
+    transform: translateX(0);
+    transition-delay: 0.1s;
+}
+
+nav{
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul{
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li{
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+    
+}
+
+nav ul li i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul li + li{
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li{
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+
+.content img{
+    max-width: 100%;
+    
+}
+
+.content{
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.content h1{
+    margin:0;
+
+}
+
+.content small{
+    color: #555;
+    font-size: italic;
+}
+
+.content p{
+    color: #333;
+    line-height: 1.5;
+}
+
+
+
+/* Media Querist */
+@media (max-width: 1100px) {
+    :root{
+        --circle-nav-size:120px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    :root{
+        --circle-nav-size:100px;
+    }
+}
